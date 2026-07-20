@@ -15,15 +15,17 @@ export function ShareResultScreen() {
   const { share } = useShare(plan, progress, completedCount);
 
   return (
-    <div style={{ padding: '48px 24px 120px' }}>
+    <div style={{ padding: '24px 24px 120px' }}>
       <button
         onClick={() => navigate(-1)}
-        style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 24, marginBottom: 24 }}
+        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px 0', marginBottom: 20, display: 'flex', alignItems: 'center' }}
         aria-label="뒤로"
       >
-        ←
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18l-6-6 6-6" stroke="var(--color-text-primary)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
       </button>
-      <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 24 }}>준비 현황을 공유해요</h2>
+      <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 24, letterSpacing: -0.4 }}>준비 현황을 공유해요</h2>
       <ShareCard ddayLabel={ddayLabel} progress={progress} completedCount={completedCount} />
       <BottomCTA>
         <button
@@ -31,13 +33,14 @@ export function ShareResultScreen() {
           style={{
             width: '100%',
             padding: '16px',
-            background: '#3182f6',
+            background: 'var(--color-primary)',
             color: '#fff',
             border: 'none',
-            borderRadius: 12,
+            borderRadius: 'var(--radius-md)',
             fontSize: 17,
             fontWeight: 600,
             cursor: 'pointer',
+            letterSpacing: -0.2,
           }}
         >
           공유하기

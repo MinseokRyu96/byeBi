@@ -38,13 +38,17 @@ export function ChecklistHomeScreen() {
   return (
     <div style={{ padding: '24px 24px 80px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-        <h1 style={{ fontSize: 20, fontWeight: 700, margin: 0 }}>퇴사 준비</h1>
+        <h1 style={{ fontSize: 20, fontWeight: 700, margin: 0, letterSpacing: -0.3 }}>퇴사 준비</h1>
         <button
           onClick={() => navigate('/settings')}
-          style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 24 }}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
           aria-label="설정"
         >
-          ⚙️
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="3" stroke="var(--color-text-secondary)" strokeWidth="1.6" />
+            <path d="M11 2v2M11 18v2M2 11h2M18 11h2M4.22 4.22l1.42 1.42M16.36 16.36l1.42 1.42M4.22 17.78l1.42-1.42M16.36 5.64l1.42-1.42"
+              stroke="var(--color-text-secondary)" strokeWidth="1.6" strokeLinecap="round" />
+          </svg>
         </button>
       </div>
       <ProgressSummary
@@ -79,15 +83,16 @@ export function ChecklistHomeScreen() {
         }}
         style={{
           width: '100%',
-          padding: '14px',
-          background: '#f5f8ff',
-          color: '#3182f6',
-          border: '1px solid #3182f6',
-          borderRadius: 12,
-          fontSize: 16,
+          padding: '15px',
+          background: 'var(--color-primary-light)',
+          color: 'var(--color-primary)',
+          border: '1.5px solid var(--color-primary)',
+          borderRadius: 'var(--radius-md)',
+          fontSize: 15,
           fontWeight: 600,
           cursor: 'pointer',
           marginTop: 8,
+          letterSpacing: -0.2,
         }}
       >
         준비 현황 공유하기

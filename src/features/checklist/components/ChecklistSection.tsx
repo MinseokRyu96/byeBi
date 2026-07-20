@@ -7,8 +7,17 @@ interface ChecklistSectionProps {
 
 export function ChecklistSection({ title, children }: ChecklistSectionProps) {
   return (
-    <section style={{ marginBottom: 24 }}>
-      <h3 style={{ fontSize: 13, fontWeight: 600, color: '#888', marginBottom: 8 }}>{title}</h3>
+    <section style={{ marginBottom: 28 }}>
+      <h3 style={{
+        fontSize: 12,
+        fontWeight: 600,
+        color: 'var(--color-text-tertiary)',
+        letterSpacing: 0.3,
+        textTransform: 'uppercase',
+        marginBottom: 10,
+      }}>
+        {title}
+      </h3>
       {children}
     </section>
   );

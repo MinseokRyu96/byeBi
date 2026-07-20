@@ -39,10 +39,10 @@ export function NextCareerScreen() {
           style={{
             width: '100%',
             padding: '16px',
-            background: state.nextCareerStatus ? '#3182f6' : '#e5e5e5',
-            color: state.nextCareerStatus ? '#fff' : '#aaa',
+            background: state.nextCareerStatus ? 'var(--color-primary)' : 'var(--color-border)',
+            color: state.nextCareerStatus ? '#fff' : 'var(--color-text-disabled)',
             border: 'none',
-            borderRadius: 12,
+            borderRadius: 'var(--radius-md)',
             fontSize: 17,
             fontWeight: 600,
             cursor: state.nextCareerStatus ? 'pointer' : 'not-allowed',

@@ -36,26 +36,28 @@ export function ChecklistDetailScreen() {
     <div style={{ padding: '24px 24px 120px' }}>
       <button
         onClick={() => navigate(-1)}
-        style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 24, marginBottom: 16 }}
+        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px 0', marginBottom: 20, display: 'flex', alignItems: 'center' }}
         aria-label="뒤로"
       >
-        ←
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18l-6-6 6-6" stroke="var(--color-text-primary)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
       </button>
-      <p style={{ fontSize: 13, color: '#888', marginBottom: 4 }}>{item.recommendedTiming}</p>
-      <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 16 }}>{item.title}</h2>
-      <p style={{ fontSize: 16, color: '#333', lineHeight: 1.7, marginBottom: 24 }}>
+      <p style={{ fontSize: 13, color: 'var(--color-text-tertiary)', marginBottom: 6 }}>{item.recommendedTiming}</p>
+      <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 16, letterSpacing: -0.4, color: 'var(--color-text-primary)' }}>{item.title}</h2>
+      <p style={{ fontSize: 15, color: 'var(--color-text-secondary)', lineHeight: 1.7, marginBottom: 24 }}>
         {item.detailDescription}
       </p>
       {item.confirmationTarget && (
-        <div style={{ background: '#f5f5f5', borderRadius: 12, padding: '16px', marginBottom: 12 }}>
-          <p style={{ margin: 0, fontSize: 13, color: '#888' }}>확인 대상</p>
-          <p style={{ margin: '4px 0 0', fontSize: 15, fontWeight: 500 }}>{item.confirmationTarget}</p>
+        <div style={{ background: 'var(--color-surface-secondary)', borderRadius: 'var(--radius-md)', padding: '16px', marginBottom: 12, border: '1px solid var(--color-border-light)' }}>
+          <p style={{ margin: 0, fontSize: 12, color: 'var(--color-text-tertiary)', fontWeight: 600, letterSpacing: 0.2, textTransform: 'uppercase' }}>확인 대상</p>
+          <p style={{ margin: '6px 0 0', fontSize: 15, fontWeight: 500, color: 'var(--color-text-primary)' }}>{item.confirmationTarget}</p>
         </div>
       )}
       {item.cautionMessage && (
-        <div style={{ background: '#fff8f0', borderRadius: 12, padding: '16px', marginBottom: 12, border: '1px solid #ffd8a8' }}>
-          <p style={{ margin: 0, fontSize: 13, color: '#e67700' }}>주의사항</p>
-          <p style={{ margin: '4px 0 0', fontSize: 15 }}>{item.cautionMessage}</p>
+        <div style={{ background: '#fff8f0', borderRadius: 'var(--radius-md)', padding: '16px', marginBottom: 12, border: '1px solid #ffd8a8' }}>
+          <p style={{ margin: 0, fontSize: 12, color: '#e67700', fontWeight: 600, letterSpacing: 0.2, textTransform: 'uppercase' }}>주의사항</p>
+          <p style={{ margin: '6px 0 0', fontSize: 15, color: 'var(--color-text-primary)' }}>{item.cautionMessage}</p>
         </div>
       )}
       <InformationNotice />
@@ -65,16 +67,17 @@ export function ChecklistDetailScreen() {
           style={{
             width: '100%',
             padding: '16px',
-            background: completed ? '#f5f5f5' : '#3182f6',
-            color: completed ? '#555' : '#fff',
-            border: completed ? '1px solid #ddd' : 'none',
-            borderRadius: 12,
+            background: completed ? 'var(--color-surface-secondary)' : 'var(--color-primary)',
+            color: completed ? 'var(--color-text-secondary)' : '#fff',
+            border: completed ? '1px solid var(--color-border)' : 'none',
+            borderRadius: 'var(--radius-md)',
             fontSize: 17,
             fontWeight: 600,
             cursor: 'pointer',
+            letterSpacing: -0.2,
           }}
         >
-          {completed ? '✓ 완료됨 · 취소하기' : '완료로 표시하기'}
+          {completed ? '완료됨 · 취소하기' : '완료로 표시하기'}
         </button>
       </BottomCTA>
     </div>

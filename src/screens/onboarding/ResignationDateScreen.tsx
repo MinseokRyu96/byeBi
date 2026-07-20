@@ -31,7 +31,7 @@ export function ResignationDateScreen() {
     <div style={{ padding: '24px 24px 120px' }}>
       <StepIndicator current={2} total={4} />
       <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 8, marginTop: 24 }}>퇴사 예정일이 언제인가요?</h2>
-      <p style={{ fontSize: 15, color: '#888', marginBottom: 32 }}>모르시면 건너뛰어도 괜찮아요.</p>
+      <p style={{ fontSize: 15, color: 'var(--color-text-secondary)', marginBottom: 32 }}>모르시면 건너뛰어도 괜찮아요.</p>
       <input
         type="date"
         value={value}
@@ -42,16 +42,18 @@ export function ResignationDateScreen() {
         style={{
           width: '100%',
           padding: '16px',
-          border: `2px solid ${error ? '#f04452' : '#e5e5e5'}`,
-          borderRadius: 12,
+          border: `2px solid ${error ? 'var(--color-danger)' : 'var(--color-border)'}`,
+          borderRadius: 'var(--radius-md)',
           fontSize: 16,
           boxSizing: 'border-box',
+          fontFamily: 'var(--font-family)',
+          color: 'var(--color-text-primary)',
         }}
       />
-      {error && <p style={{ color: '#f04452', fontSize: 13, marginTop: 8 }}>{error}</p>}
+      {error && <p style={{ color: 'var(--color-danger)', fontSize: 13, marginTop: 8 }}>{error}</p>}
       <button
         onClick={handleSkip}
-        style={{ marginTop: 16, background: 'none', border: 'none', color: '#888', fontSize: 15, cursor: 'pointer' }}
+        style={{ marginTop: 16, background: 'none', border: 'none', color: 'var(--color-text-secondary)', fontSize: 15, cursor: 'pointer' }}
       >
         날짜를 아직 모르겠어요
       </button>
@@ -61,10 +63,10 @@ export function ResignationDateScreen() {
           style={{
             width: '100%',
             padding: '16px',
-            background: '#3182f6',
+            background: 'var(--color-primary)',
             color: '#fff',
             border: 'none',
-            borderRadius: 12,
+            borderRadius: 'var(--radius-md)',
             fontSize: 17,
             fontWeight: 600,
             cursor: 'pointer',

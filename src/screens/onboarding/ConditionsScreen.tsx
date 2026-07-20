@@ -44,7 +44,7 @@ export function ConditionsScreen() {
     <div style={{ padding: '24px 24px 120px' }}>
       <StepIndicator current={4} total={4} />
       <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 8, marginTop: 24 }}>해당하는 상황을 모두 선택해주세요.</h2>
-      <p style={{ fontSize: 15, color: '#888', marginBottom: 32 }}>선택하지 않아도 괜찮아요.</p>
+      <p style={{ fontSize: 15, color: 'var(--color-text-secondary)', marginBottom: 32 }}>선택하지 않아도 괜찮아요.</p>
       <ConditionCheckboxList
         options={OPTIONS}
         selected={state.conditions}
@@ -56,10 +56,10 @@ export function ConditionsScreen() {
           style={{
             width: '100%',
             padding: '16px',
-            background: '#3182f6',
+            background: 'var(--color-primary)',
             color: '#fff',
             border: 'none',
-            borderRadius: 12,
+            borderRadius: 'var(--radius-md)',
             fontSize: 17,
             fontWeight: 600,
             cursor: 'pointer',

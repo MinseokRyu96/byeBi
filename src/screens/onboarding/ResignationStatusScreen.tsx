@@ -39,10 +39,10 @@ export function ResignationStatusScreen() {
           style={{
             width: '100%',
             padding: '16px',
-            background: state.resignationStatus ? '#3182f6' : '#e5e5e5',
-            color: state.resignationStatus ? '#fff' : '#aaa',
+            background: state.resignationStatus ? 'var(--color-primary)' : 'var(--color-border)',
+            color: state.resignationStatus ? '#fff' : 'var(--color-text-disabled)',
             border: 'none',
-            borderRadius: 12,
+            borderRadius: 'var(--radius-md)',
             fontSize: 17,
             fontWeight: 600,
             cursor: state.resignationStatus ? 'pointer' : 'not-allowed',
