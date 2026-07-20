@@ -104,14 +104,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
   word-break: keep-all;
   overflow-wrap: break-word;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 #root {
   min-height: 100dvh;
-  max-width: 375px;
-  margin: 0 auto;
+  width: 100%;
   background: var(--color-surface);
   position: relative;
+}
+
+/* ── Dark Mode ─────────────────────────────────────────── */
+[data-theme="dark"] {
+  --color-bg: #0d1221;
+  --color-surface: #1a2234;
+  --color-surface-secondary: #152031;
+  --color-border: #2a3547;
+  --color-border-light: #1e2d40;
+  --color-text-primary: #f1f3f5;
+  --color-text-secondary: #9ca3af;
+  --color-text-tertiary: #6b7684;
+  --color-text-disabled: #4b5563;
+  --color-primary-light: #1a2e4a;
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
 h1, h2, h3, h4, h5, h6 {

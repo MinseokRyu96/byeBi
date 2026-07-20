@@ -80,10 +80,10 @@ export function ChecklistCard({ item, isCompleted, onToggle, onDetailClick }: Ch
       <button
         onClick={onDetailClick}
         aria-label="상세 보기"
-        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, flexShrink: 0, display: 'flex', alignItems: 'center' }}
+        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '12px 8px', flexShrink: 0, display: 'flex', alignItems: 'center', margin: '-12px -8px' }}
       >
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M6 4l4 4-4 4" stroke="var(--color-text-tertiary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M7 5l4 4-4 4" stroke="var(--color-text-tertiary)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
     </div>
