@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { BottomCTA } from '@/components/BottomCTA';
 import { trackEvent } from '@/analytics/events';
 import { useEffect, useState } from 'react';
 import { getUserPlan } from '@/storage/userPlan';
@@ -22,80 +21,90 @@ export function EntryScreen() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', padding: '0 20px', paddingBottom: 'calc(80px + env(safe-area-inset-bottom))' }}>
-      {/* 상단 영역 */}
-      <div style={{ flex: 1, paddingTop: 60 }}>
-        {/* 아이콘 */}
-        <div style={{
-          width: 64, height: 64, borderRadius: 18,
-          background: 'linear-gradient(135deg, #3182f6 0%, #1b64da 100%)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          marginBottom: 28, boxShadow: '0 8px 24px rgba(49, 130, 246, 0.3)',
-        }}>
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect x="8" y="4" width="16" height="3" rx="1.5" fill="white" opacity="0.7" />
-            <rect x="10" y="2" width="12" height="5" rx="2" fill="white" />
-            <rect x="6" y="7" width="20" height="22" rx="3" fill="white" opacity="0.15" stroke="white" strokeWidth="1.5" />
-            <path d="M11 15l2.5 2.5L21 11" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M11 22h10" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-          </svg>
+    <div style={{
+      display: 'flex', flexDirection: 'column', minHeight: '100dvh',
+      background: '#0d1221',
+    }}>
+      {/* 상단 콘텐츠 */}
+      <div style={{ flex: 1, padding: '56px 24px 32px', display: 'flex', flexDirection: 'column' }}>
+
+        {/* 브랜드 */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 52 }}>
+          <span style={{ fontSize: 22 }}>👋</span>
+          <span style={{
+            fontSize: 20, fontWeight: 700, color: '#fff', letterSpacing: -0.5,
+          }}>byebye</span>
         </div>
 
-        {/* 헤드라인 */}
-        <h1 style={{
-          fontSize: 26, fontWeight: 700, lineHeight: 1.3,
-          color: 'var(--color-text-primary)', marginBottom: 12, letterSpacing: -0.5,
-        }}>
-          퇴사 준비,<br />무엇부터 해야 할까요?
-        </h1>
-        <p style={{
-          fontSize: 15, color: 'var(--color-text-secondary)',
-          lineHeight: 1.6, marginBottom: 36,
-        }}>
-          현재 상황을 알려주시면 해야 할 일을<br />순서대로 정리해드려요.
-        </p>
+        {/* 메인 카피 */}
+        <div style={{ flex: 1 }}>
+          <h1 style={{
+            fontSize: 28, fontWeight: 700, lineHeight: 1.35,
+            color: '#fff', marginBottom: 4, letterSpacing: -0.8,
+          }}>
+            퇴사부터<br />새로운 시작까지,
+          </h1>
+          <h2 style={{
+            fontSize: 28, fontWeight: 700, lineHeight: 1.35,
+            color: 'var(--color-primary)', marginBottom: 24, letterSpacing: -0.8,
+          }}>
+            놓치는 것 없이<br />준비하세요
+          </h2>
+          <p style={{
+            fontSize: 15, color: 'rgba(255,255,255,0.55)',
+            lineHeight: 1.7,
+          }}>
+            체크리스트와 D-DAY로<br />퇴사 준비를 체계적으로 도와드려요
+          </p>
 
-        {/* 혜택 카드 */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {[
-            { icon: '📋', text: '퇴사 전·후 준비 사항 정리' },
-            { icon: '✨', text: '내 상황에 맞는 맞춤 체크리스트' },
-            { icon: '📊', text: '완료 진행률 한눈에 확인' },
-          ].map(({ icon, text }) => (
-            <div key={text} style={{
-              display: 'flex', alignItems: 'center', gap: 12,
-              padding: '14px 16px',
-              background: 'var(--color-surface-secondary)',
-              borderRadius: 'var(--radius-md)',
-            }}>
-              <span style={{ fontSize: 18 }}>{icon}</span>
-              <span style={{ fontSize: 15, fontWeight: 500, color: 'var(--color-text-primary)' }}>{text}</span>
-            </div>
-          ))}
+          {/* 피처 리스트 */}
+          <div style={{ marginTop: 44, display: 'flex', flexDirection: 'column', gap: 14 }}>
+            {[
+              { label: '맞춤 체크리스트', desc: '내 상황에 맞는 준비 항목 자동 생성' },
+              { label: 'D-DAY 카운트다운', desc: '퇴사일까지 남은 날 한눈에 확인' },
+              { label: '단계별 진행 관리', desc: '완료 항목 체크하며 준비 상황 추적' },
+            ].map(({ label, desc }) => (
+              <div key={label} style={{ display: 'flex', alignItems: 'flex-start', gap: 14 }}>
+                <div style={{
+                  width: 6, height: 6, borderRadius: '50%',
+                  background: 'var(--color-primary)', marginTop: 7, flexShrink: 0,
+                }} />
+                <div>
+                  <p style={{ margin: 0, fontSize: 14, fontWeight: 600, color: '#fff' }}>{label}</p>
+                  <p style={{ margin: '2px 0 0', fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-
-        {/* 법적 고지 */}
-        <p style={{
-          marginTop: 24, fontSize: 12, color: 'var(--color-text-tertiary)', lineHeight: 1.6,
-        }}>
-          이 서비스는 정보 제공 목적이며 법률·노무 자문을 제공하지 않습니다.
-        </p>
       </div>
 
-      <BottomCTA>
+      {/* 하단 CTA — dark 테마에 맞게 직접 배치 */}
+      <div style={{
+        padding: '16px 24px',
+        paddingBottom: 'max(24px, env(safe-area-inset-bottom))',
+        background: 'rgba(255,255,255,0.04)',
+        borderTop: '1px solid rgba(255,255,255,0.08)',
+      }}>
         <button
           onClick={handleStart}
           style={{
-            width: '100%', padding: '16px',
+            width: '100%', padding: '17px',
             background: 'var(--color-primary)', color: '#fff',
             border: 'none', borderRadius: 'var(--radius-md)',
-            fontSize: 17, fontWeight: 600, cursor: 'pointer',
-            letterSpacing: -0.2,
+            fontSize: 17, fontWeight: 700, cursor: 'pointer',
+            letterSpacing: -0.3,
           }}
         >
           내 체크리스트 만들기
         </button>
-      </BottomCTA>
+        <p style={{
+          textAlign: 'center', marginTop: 12,
+          fontSize: 11, color: 'rgba(255,255,255,0.3)', lineHeight: 1.5,
+        }}>
+          이 서비스는 정보 제공 목적이며 법률·노무 자문을 제공하지 않습니다.
+        </p>
+      </div>
     </div>
   );
 }

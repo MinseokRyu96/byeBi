@@ -1,39 +1,83 @@
+import { formatResignationDate } from '@/utils/dday';
+
 interface ProgressSummaryProps {
+  dday: number | null;
   ddayLabel: string;
+  resignationDate: string | null;
   progress: number;
   completedCount: number;
   totalCount: number;
 }
 
-export function ProgressSummary({ ddayLabel, progress, completedCount, totalCount }: ProgressSummaryProps) {
+export function ProgressSummary({ dday, ddayLabel, resignationDate, progress, completedCount, totalCount }: ProgressSummaryProps) {
   const isComplete = progress === 100;
+  const dateLabel = formatResignationDate(resignationDate);
+  const isOver = dday !== null && dday < 0;
 
   return (
     <div
       style={{
-        background: isComplete
-          ? 'linear-gradient(135deg, #00b493 0%, #009a7d 100%)'
-          : 'linear-gradient(135deg, #3182f6 0%, #1b64da 100%)',
+        background: 'var(--color-surface)',
         borderRadius: 'var(--radius-lg)',
-        padding: '20px 20px 18px',
-        marginBottom: 24,
-        boxShadow: isComplete
-          ? '0 4px 16px rgba(0, 180, 147, 0.25)'
-          : '0 4px 16px rgba(49, 130, 246, 0.25)',
+        padding: '20px',
+        marginBottom: 20,
+        border: '1px solid var(--color-border-light)',
+        boxShadow: 'var(--shadow-sm)',
       }}
     >
-      <p style={{ margin: 0, fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,0.75)', marginBottom: 4 }}>
-        {isComplete ? '모두 완료했어요!' : '퇴사까지'}
-      </p>
-      <p style={{ margin: 0, fontSize: 22, fontWeight: 700, color: '#fff', letterSpacing: -0.5 }}>
+      {/* 헤더 */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+        <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--color-text-tertiary)', letterSpacing: 0.3 }}>
+          퇴사 D-DAY
+        </span>
+        {isComplete && (
+          <span style={{
+            fontSize: 11, fontWeight: 600, color: 'var(--color-success)',
+            background: 'var(--color-success-light)', borderRadius: 'var(--radius-full)',
+            padding: '2px 8px',
+          }}>
+            완료
+          </span>
+        )}
+      </div>
+
+      {/* D-DAY 숫자 */}
+      <p style={{
+        margin: 0,
+        fontSize: 40,
+        fontWeight: 700,
+        letterSpacing: -1.5,
+        color: isComplete
+          ? 'var(--color-success)'
+          : isOver
+            ? 'var(--color-text-secondary)'
+            : 'var(--color-primary)',
+        lineHeight: 1.1,
+      }}>
         {ddayLabel}
       </p>
 
-      <div style={{ marginTop: 16, background: 'rgba(255,255,255,0.25)', borderRadius: 'var(--radius-full)', height: 6 }}>
+      {/* 날짜 */}
+      {dateLabel && (
+        <p style={{ margin: '6px 0 0', fontSize: 13, color: 'var(--color-text-tertiary)' }}>
+          {dateLabel}
+        </p>
+      )}
+
+      {/* 구분선 */}
+      <div style={{ margin: '16px 0 14px', height: 1, background: 'var(--color-border-light)' }} />
+
+      {/* 진행률 */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+        <span style={{ fontSize: 13, color: 'var(--color-text-secondary)', fontWeight: 500 }}>전체 진행률</span>
+        <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--color-text-primary)' }}>{progress}%</span>
+      </div>
+
+      <div style={{ background: 'var(--color-border)', borderRadius: 'var(--radius-full)', height: 5 }}>
         <div
           style={{
             width: `${progress}%`,
-            background: '#fff',
+            background: isComplete ? 'var(--color-success)' : 'var(--color-primary)',
             height: '100%',
             borderRadius: 'var(--radius-full)',
             transition: 'width 0.4s ease',
@@ -41,14 +85,9 @@ export function ProgressSummary({ ddayLabel, progress, completedCount, totalCoun
         />
       </div>
 
-      <div style={{ marginTop: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <p style={{ margin: 0, fontSize: 13, color: 'rgba(255,255,255,0.8)' }}>
-          {completedCount}/{totalCount}개 완료
-        </p>
-        <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: '#fff' }}>
-          {progress}%
-        </p>
-      </div>
+      <p style={{ margin: '8px 0 0', fontSize: 12, color: 'var(--color-text-tertiary)' }}>
+        {completedCount}/{totalCount}개 완료
+      </p>
     </div>
   );
 }

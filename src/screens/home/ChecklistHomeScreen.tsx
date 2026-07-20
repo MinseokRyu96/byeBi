@@ -15,7 +15,7 @@ export function ChecklistHomeScreen() {
   const navigate = useNavigate();
   const [plan] = useState(() => getUserPlan());
   const { items, completedIds, toggleItem, completedCount, totalCount } = useChecklist(plan);
-  const { ddayLabel, progress } = useProgress(plan, completedCount, totalCount);
+  const { dday, ddayLabel, progress } = useProgress(plan, completedCount, totalCount);
 
   useEffect(() => {
     if (!plan) {
@@ -36,9 +36,19 @@ export function ChecklistHomeScreen() {
   if (items.length === 0) return <EmptyState variant="no-data" />;
 
   return (
-    <div style={{ padding: '24px 20px 80px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-        <h1 style={{ fontSize: 20, fontWeight: 700, margin: 0, letterSpacing: -0.3 }}>퇴사 준비</h1>
+    <div style={{ background: 'var(--color-bg)', minHeight: '100dvh' }}>
+      {/* 헤더 */}
+      <div style={{
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        padding: '20px 20px 12px',
+        background: 'var(--color-surface)',
+        borderBottom: '1px solid var(--color-border-light)',
+        position: 'sticky', top: 0, zIndex: 10,
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span style={{ fontSize: 16 }}>👋</span>
+          <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--color-text-primary)', letterSpacing: -0.3 }}>byebye</span>
+        </div>
         <button
           onClick={() => navigate('/settings')}
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
@@ -51,8 +61,12 @@ export function ChecklistHomeScreen() {
           </svg>
         </button>
       </div>
+
+      <div style={{ padding: '16px 20px 80px' }}>
       <ProgressSummary
+        dday={dday}
         ddayLabel={ddayLabel}
+        resignationDate={plan?.resignationDate ?? null}
         progress={progress}
         completedCount={completedCount}
         totalCount={totalCount}
@@ -97,6 +111,7 @@ export function ChecklistHomeScreen() {
       >
         준비 현황 공유하기
       </button>
+      </div>
     </div>
   );
 }
