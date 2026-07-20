@@ -10,12 +10,14 @@ export function BottomCTA({ children }: BottomCTAProps) {
       style={{
         position: 'fixed',
         bottom: 0,
-        left: 0,
-        right: 0,
-        padding: '16px 24px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '100%',
+        maxWidth: 375,
+        padding: '12px 20px',
         paddingBottom: 'max(16px, env(safe-area-inset-bottom))',
-        background: '#fff',
-        borderTop: '1px solid #f0f0f0',
+        background: 'var(--color-surface)',
+        borderTop: '1px solid var(--color-border-light)',
       }}
     >
       {children}

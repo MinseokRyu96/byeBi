@@ -28,7 +28,7 @@ export function ResignationDateScreen() {
   }
 
   return (
-    <div style={{ padding: '24px 24px 120px' }}>
+    <div style={{ padding: '24px 20px 120px' }}>
       <StepIndicator current={2} total={4} />
       <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 8, marginTop: 24 }}>퇴사 예정일이 언제인가요?</h2>
       <p style={{ fontSize: 15, color: 'var(--color-text-secondary)', marginBottom: 32 }}>모르시면 건너뛰어도 괜찮아요.</p>

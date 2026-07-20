@@ -22,7 +22,7 @@ export function EntryScreen() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', padding: '0 24px', paddingBottom: 'calc(80px + env(safe-area-inset-bottom))' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', padding: '0 20px', paddingBottom: 'calc(80px + env(safe-area-inset-bottom))' }}>
       {/* 상단 영역 */}
       <div style={{ flex: 1, paddingTop: 60 }}>
         {/* 아이콘 */}

@@ -36,7 +36,7 @@ export function ChecklistHomeScreen() {
   if (items.length === 0) return <EmptyState variant="no-data" />;
 
   return (
-    <div style={{ padding: '24px 24px 80px' }}>
+    <div style={{ padding: '24px 20px 80px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
         <h1 style={{ fontSize: 20, fontWeight: 700, margin: 0, letterSpacing: -0.3 }}>퇴사 준비</h1>
         <button

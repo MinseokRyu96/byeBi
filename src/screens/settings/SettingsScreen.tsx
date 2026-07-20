@@ -23,7 +23,7 @@ export function SettingsScreen() {
   }
 
   return (
-    <div style={{ padding: '24px' }}>
+    <div style={{ padding: '24px 20px' }}>
       <button
         onClick={() => navigate(-1)}
         style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px 0', marginBottom: 20, display: 'flex', alignItems: 'center' }}
@@ -67,7 +67,7 @@ export function SettingsScreen() {
             zIndex: 100,
           }}
         >
-          <div style={{ background: 'var(--color-surface)', borderRadius: 'var(--radius-lg)', padding: '24px', margin: '0 24px', width: '100%', maxWidth: 360, boxShadow: 'var(--shadow-lg)' }}>
+          <div style={{ background: 'var(--color-surface)', borderRadius: 'var(--radius-lg)', padding: '24px 20px', margin: '0 24px', width: '100%', maxWidth: 360, boxShadow: 'var(--shadow-lg)' }}>
             <h3 style={{ margin: '0 0 10px', fontSize: 18, fontWeight: 700, letterSpacing: -0.3 }}>정말 초기화할까요?</h3>
             <p style={{ margin: '0 0 24px', fontSize: 15, color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
               모든 데이터가 삭제되며 복구할 수 없어요.

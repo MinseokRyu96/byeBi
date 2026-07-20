@@ -33,7 +33,7 @@ export function ChecklistDetailScreen() {
   }
 
   return (
-    <div style={{ padding: '24px 24px 120px' }}>
+    <div style={{ padding: '24px 20px 120px' }}>
       <button
         onClick={() => navigate(-1)}
         style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px 0', marginBottom: 20, display: 'flex', alignItems: 'center' }}

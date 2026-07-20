@@ -24,7 +24,7 @@ export function ResignationStatusScreen() {
   }
 
   return (
-    <div style={{ padding: '24px 24px 120px' }}>
+    <div style={{ padding: '24px 20px 120px' }}>
       <StepIndicator current={1} total={4} />
       <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 32, marginTop: 24 }}>현재 어떤 상황인가요?</h2>
       <StatusOptionList

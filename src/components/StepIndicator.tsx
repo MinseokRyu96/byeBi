@@ -5,22 +5,19 @@ interface StepIndicatorProps {
 
 export function StepIndicator({ current, total }: StepIndicatorProps) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
       {Array.from({ length: total }, (_, i) => (
         <div
           key={i}
           style={{
             flex: 1,
-            height: 4,
-            borderRadius: 2,
-            background: i < current ? '#3182f6' : '#e5e5e5',
+            height: 3,
+            borderRadius: 'var(--radius-full)',
+            background: i < current ? 'var(--color-primary)' : 'var(--color-border)',
             transition: 'background 0.2s',
           }}
         />
       ))}
-      <span style={{ fontSize: 12, color: '#888', marginLeft: 4, whiteSpace: 'nowrap' }}>
-        {current}/{total}
-      </span>
     </div>
   );
 }
