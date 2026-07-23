@@ -60,6 +60,48 @@ export function ChecklistDetailScreen() {
           <p style={{ margin: '6px 0 0', fontSize: 15, color: 'var(--color-text-primary)' }}>{item.cautionMessage}</p>
         </div>
       )}
+      {item.links && item.links.length > 0 && (
+        <div style={{ marginBottom: 20 }}>
+          <p style={{ fontSize: 12, fontWeight: 600, color: 'var(--color-text-tertiary)', letterSpacing: 0.2, textTransform: 'uppercase', marginBottom: 10 }}>
+            관련 사이트
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {item.links.map((link) => (
+              <a
+                key={link.url}
+                href={link.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                style={{ textDecoration: 'none' }}
+              >
+                <div style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                  background: 'var(--color-surface)',
+                  border: '1px solid var(--color-border)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '14px 16px',
+                  gap: 12,
+                }}>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <p style={{ margin: 0, fontSize: 14, fontWeight: 600, color: 'var(--color-primary)', letterSpacing: -0.1 }}>
+                      {link.label}
+                    </p>
+                    {link.description && (
+                      <p style={{ margin: '4px 0 0', fontSize: 12, color: 'var(--color-text-tertiary)', lineHeight: 1.5 }}>
+                        {link.description}
+                      </p>
+                    )}
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
+                    <path d="M6 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-3" stroke="var(--color-text-tertiary)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M10 2h4v4M14 2L8 8" stroke="var(--color-text-tertiary)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
       <InformationNotice />
       <BottomCTA>
         <button

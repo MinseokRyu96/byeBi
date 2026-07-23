@@ -16,6 +16,12 @@ export type ChecklistRule = {
   conditions?: UserCondition[];
 };
 
+export interface ChecklistLink {
+  label: string;
+  url: string;
+  description?: string;
+}
+
 export interface ChecklistItem {
   id: string;
   category: ChecklistCategory;
@@ -27,6 +33,7 @@ export interface ChecklistItem {
   applicableRules: ChecklistRule[];
   confirmationTarget?: string;
   cautionMessage?: string;
+  links?: ChecklistLink[];
   sourceUpdatedAt?: string;
 }
 

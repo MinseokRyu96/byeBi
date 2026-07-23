@@ -1,6 +1,6 @@
 import type { ChecklistItem } from '@/types/checklist';
 
-export const CONTENT_VERSION = '1.0.0';
+export const CONTENT_VERSION = '1.1.0';
 
 export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
   {
@@ -15,6 +15,18 @@ export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
     applicableRules: [{ conditions: ['HAS_REMAINING_LEAVE'] }],
     confirmationTarget: '인사팀',
     cautionMessage: '연차 수당 지급 여부는 회사 취업규칙에 따라 다릅니다.',
+    links: [
+      {
+        label: '고용노동부 — 연차유급휴가 안내',
+        url: 'https://www.moel.go.kr/info/lawinfo/laborlaw/view.do?bbs_seq=20191100735',
+        description: '연차 발생 기준과 미사용 수당 관련 규정을 확인할 수 있어요.',
+      },
+      {
+        label: '고용노동부 민원마당',
+        url: 'https://minwon.moel.go.kr',
+        description: '연차 관련 노동 법률 상담을 받을 수 있어요.',
+      },
+    ],
   },
   {
     id: 'common-handover',
@@ -34,11 +46,18 @@ export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
     title: '회사에 서류 발급 요청하기',
     shortDescription: '경력증명서, 재직증명서 등 필요 서류를 미리 요청하세요.',
     detailDescription:
-      '퇴직 후 필요한 경력증명서, 재직증명서를 퇴사 전에 요청해두면 편리합니다. 발급까지 수일이 걸릴 수 있으니 여유 있게 신청하세요.',
+      '퇴직 후 필요한 경력증명서, 재직증명서를 퇴사 전에 요청해두면 편리합니다. 발급까지 수일이 걸릴 수 있으니 여유 있게 신청하세요. 졸업증명서 등 개인 서류는 정부24에서 온라인 발급이 가능합니다.',
     recommendedTiming: '퇴사 1주 전',
     priority: 'HIGH',
     applicableRules: [{}],
     confirmationTarget: '인사팀',
+    links: [
+      {
+        label: '정부24 — 증명서 발급',
+        url: 'https://www.gov.kr/portal/main/nlogin',
+        description: '졸업증명서, 주민등록등본 등 각종 증명서를 온라인으로 발급받을 수 있어요.',
+      },
+    ],
   },
   {
     id: 'common-return-assets',
@@ -58,11 +77,28 @@ export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
     title: '건강보험 지역가입자 전환 확인하기',
     shortDescription: '퇴사 후 건강보험 유지 방법을 확인하세요.',
     detailDescription:
-      '직장가입자에서 지역가입자로 자동 전환됩니다. 임의계속가입 신청(퇴직 후 2개월 내)을 통해 보험료를 낮출 수 있습니다.',
+      '퇴사하면 직장가입자 자격이 상실되어 지역가입자로 자동 전환됩니다. 보험료 부담이 늘 수 있으니, 퇴직 후 2개월 내에 임의계속가입을 신청하면 최대 36개월간 직장가입자 수준의 보험료를 유지할 수 있습니다.',
     recommendedTiming: '퇴사 후 2주 내',
     priority: 'HIGH',
     applicableRules: [{}],
     confirmationTarget: '국민건강보험공단',
+    links: [
+      {
+        label: '국민건강보험공단',
+        url: 'https://www.nhis.or.kr',
+        description: '지역가입자 전환 및 임의계속가입 신청을 할 수 있어요.',
+      },
+      {
+        label: '건강보험 임의계속가입 신청',
+        url: 'https://www.nhis.or.kr/nhis/minwon/initRequestForContinuedInsurance.do',
+        description: '퇴직 후 2개월 내 신청하면 보험료 부담을 줄일 수 있어요.',
+      },
+      {
+        label: '건강보험료 모의계산',
+        url: 'https://www.nhis.or.kr/nhis/minwon/initEstimateCalculatorDetail.do?pgmid=HIAB060001',
+        description: '지역가입자로 전환 시 예상 보험료를 미리 확인할 수 있어요.',
+      },
+    ],
   },
   {
     id: 'unemployment-benefit',
@@ -70,7 +106,7 @@ export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
     title: '실업급여 수급 조건 확인하기',
     shortDescription: '실업급여 신청 방법과 조건을 미리 파악하세요.',
     detailDescription:
-      '고용보험 피보험자격 상실 후 구직 등록을 통해 신청합니다. 이직 확인서 발급 여부를 사전에 회사에 확인하세요.',
+      '고용보험 피보험자격 상실 후 구직 등록을 통해 신청합니다. 이직 확인서 발급 여부를 사전에 회사에 확인하세요. 이직일 이전 18개월 중 피보험단위기간이 180일 이상이어야 수급 자격이 됩니다.',
     recommendedTiming: '퇴사 후 가능한 빨리',
     priority: 'MEDIUM',
     applicableRules: [
@@ -78,6 +114,74 @@ export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
       { nextCareerStatus: ['CAREER_BREAK', 'UNDECIDED'] },
     ],
     confirmationTarget: '고용노동부 고용센터',
+    links: [
+      {
+        label: '고용24 — 실업급여 신청',
+        url: 'https://www.work24.go.kr/cm/c/d/CMCDD0100L0.do',
+        description: '온라인으로 실업급여를 신청하고 진행 상황을 확인할 수 있어요.',
+      },
+      {
+        label: '고용보험 — 수급자격 확인',
+        url: 'https://www.ei.go.kr/ei/eih/eg/eb/ebPersonBnefitScrInfoTrgt/retrievePersonBnefitScrInfoTrgt.do',
+        description: '내 고용보험 가입 이력과 수급 자격 여부를 확인할 수 있어요.',
+      },
+      {
+        label: '워크넷 — 구직 등록',
+        url: 'https://www.work.go.kr',
+        description: '실업급여 신청 전 구직 등록이 필요해요.',
+      },
+    ],
+  },
+  {
+    id: 'pension-check',
+    category: 'AFTER_LEAVING',
+    title: '퇴직연금(IRP) 수령 방법 확인하기',
+    shortDescription: '퇴직연금 수령 또는 IRP 계좌 이전을 확인하세요.',
+    detailDescription:
+      '퇴직 시 퇴직연금은 개인형 퇴직연금(IRP) 계좌로 이전됩니다. 55세 이전 중도 인출 시 퇴직소득세 외 기타소득세 16.5%가 추가로 부과되므로, 가능하면 연금 형태로 유지하는 것이 유리합니다. 근로복지공단 또는 가입 금융기관에 문의하세요.',
+    recommendedTiming: '퇴사 후 14일 내',
+    priority: 'HIGH',
+    applicableRules: [{}],
+    confirmationTarget: '퇴직연금 사업자(은행/증권사)',
+    cautionMessage: '55세 이전 중도 인출 시 세금 부담이 커질 수 있습니다.',
+    links: [
+      {
+        label: '근로복지공단 — 퇴직연금',
+        url: 'https://pension.comwel.or.kr',
+        description: '퇴직연금 DB·DC형 수령 방법과 IRP 계좌 이전을 안내받을 수 있어요.',
+      },
+      {
+        label: '금융감독원 — 통합연금포털',
+        url: 'https://100lifeplan.fss.or.kr',
+        description: '내 퇴직연금 가입 현황과 예상 수령액을 한눈에 확인할 수 있어요.',
+      },
+    ],
+  },
+  {
+    id: 'national-pension-check',
+    category: 'AFTER_LEAVING',
+    title: '국민연금 납부 예외 신청하기',
+    shortDescription: '소득이 없어지면 국민연금 납부 예외를 신청할 수 있어요.',
+    detailDescription:
+      '퇴직 후 소득이 없는 기간에는 국민연금 납부 예외를 신청해 보험료 부담을 줄일 수 있습니다. 납부 예외 기간은 추후 추납 제도를 통해 채울 수 있습니다.',
+    recommendedTiming: '퇴사 후 1개월 내',
+    priority: 'MEDIUM',
+    applicableRules: [
+      { nextCareerStatus: ['CAREER_BREAK', 'UNDECIDED', 'JOB_SEARCHING'] },
+    ],
+    confirmationTarget: '국민연금공단',
+    links: [
+      {
+        label: '국민연금공단',
+        url: 'https://www.nps.or.kr',
+        description: '납부 예외 신청 및 연금 가입 이력을 확인할 수 있어요.',
+      },
+      {
+        label: '내 연금 알아보기',
+        url: 'https://csa.nps.or.kr',
+        description: '예상 연금 수령액을 미리 조회해볼 수 있어요.',
+      },
+    ],
   },
   {
     id: 'portfolio-prep',
@@ -97,10 +201,22 @@ export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
     title: '새 회사 제출 서류 준비하기',
     shortDescription: '입사에 필요한 서류 목록을 미리 확인하세요.',
     detailDescription:
-      '경력증명서, 건강검진 결과서, 졸업증명서 등 새 회사에서 요구하는 서류를 미리 파악하고 준비합니다.',
+      '경력증명서, 건강검진 결과서, 졸업증명서 등 새 회사에서 요구하는 서류를 미리 파악하고 준비합니다. 정부24에서 대부분의 공공 증명서를 온라인 발급할 수 있습니다.',
     recommendedTiming: '퇴사 전 또는 직후',
     priority: 'HIGH',
     applicableRules: [{ nextCareerStatus: ['NEXT_JOB_CONFIRMED'] }],
+    links: [
+      {
+        label: '정부24 — 증명서 발급',
+        url: 'https://www.gov.kr/portal/main/nlogin',
+        description: '졸업증명서, 경력증명서 등 각종 공공 서류를 온라인으로 발급받을 수 있어요.',
+      },
+      {
+        label: '건강검진 결과 확인 (건강iN)',
+        url: 'https://hi.nhis.or.kr',
+        description: '건강검진 결과서를 온라인으로 출력할 수 있어요.',
+      },
+    ],
   },
   {
     id: 'emergency-fund',
