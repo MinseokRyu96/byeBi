@@ -1,6 +1,6 @@
 import type { ChecklistItem } from '@/types/checklist';
 
-export const CONTENT_VERSION = '1.1.0';
+export const CONTENT_VERSION = '1.2.0';
 
 export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
   {
@@ -17,14 +17,9 @@ export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
     cautionMessage: '연차 수당 지급 여부는 회사 취업규칙에 따라 다릅니다.',
     links: [
       {
-        label: '고용노동부 — 연차유급휴가 안내',
-        url: 'https://www.moel.go.kr/info/lawinfo/laborlaw/view.do?bbs_seq=20191100735',
-        description: '연차 발생 기준과 미사용 수당 관련 규정을 확인할 수 있어요.',
-      },
-      {
-        label: '고용노동부 민원마당',
-        url: 'https://minwon.moel.go.kr',
-        description: '연차 관련 노동 법률 상담을 받을 수 있어요.',
+        label: '고용노동부',
+        url: 'https://www.moel.go.kr',
+        description: '연차 발생 기준, 미사용 수당 규정 및 노동 법률 상담을 받을 수 있어요.',
       },
     ],
   },
@@ -54,7 +49,7 @@ export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
     links: [
       {
         label: '정부24 — 증명서 발급',
-        url: 'https://www.gov.kr/portal/main/nlogin',
+        url: 'https://www.gov.kr',
         description: '졸업증명서, 주민등록등본 등 각종 증명서를 온라인으로 발급받을 수 있어요.',
       },
     ],
@@ -90,13 +85,8 @@ export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
       },
       {
         label: '건강보험 임의계속가입 신청',
-        url: 'https://www.nhis.or.kr/nhis/minwon/initRequestForContinuedInsurance.do',
-        description: '퇴직 후 2개월 내 신청하면 보험료 부담을 줄일 수 있어요.',
-      },
-      {
-        label: '건강보험료 모의계산',
-        url: 'https://www.nhis.or.kr/nhis/minwon/initEstimateCalculatorDetail.do?pgmid=HIAB060001',
-        description: '지역가입자로 전환 시 예상 보험료를 미리 확인할 수 있어요.',
+        url: 'https://www.nhis.or.kr',
+        description: '퇴직 후 2개월 내 신청하면 보험료 부담을 줄일 수 있어요. 홈페이지에서 임의계속가입을 검색하세요.',
       },
     ],
   },
@@ -117,18 +107,8 @@ export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
     links: [
       {
         label: '고용24 — 실업급여 신청',
-        url: 'https://www.work24.go.kr/cm/c/d/CMCDD0100L0.do',
-        description: '온라인으로 실업급여를 신청하고 진행 상황을 확인할 수 있어요.',
-      },
-      {
-        label: '고용보험 — 수급자격 확인',
-        url: 'https://www.ei.go.kr/ei/eih/eg/eb/ebPersonBnefitScrInfoTrgt/retrievePersonBnefitScrInfoTrgt.do',
-        description: '내 고용보험 가입 이력과 수급 자격 여부를 확인할 수 있어요.',
-      },
-      {
-        label: '워크넷 — 구직 등록',
-        url: 'https://www.work.go.kr',
-        description: '실업급여 신청 전 구직 등록이 필요해요.',
+        url: 'https://www.work24.go.kr',
+        description: '온라인으로 실업급여 신청, 구직 등록, 수급 자격 확인을 모두 할 수 있어요.',
       },
     ],
   },
@@ -152,7 +132,7 @@ export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
       },
       {
         label: '금융감독원 — 통합연금포털',
-        url: 'https://100lifeplan.fss.or.kr',
+        url: 'https://www.fss.or.kr/fss/lifeplan/lifeplanIndex/index.do?menuNo=201101',
         description: '내 퇴직연금 가입 현황과 예상 수령액을 한눈에 확인할 수 있어요.',
       },
     ],
@@ -208,13 +188,13 @@ export const ALL_CHECKLIST_ITEMS: ChecklistItem[] = [
     links: [
       {
         label: '정부24 — 증명서 발급',
-        url: 'https://www.gov.kr/portal/main/nlogin',
+        url: 'https://www.gov.kr',
         description: '졸업증명서, 경력증명서 등 각종 공공 서류를 온라인으로 발급받을 수 있어요.',
       },
       {
-        label: '건강검진 결과 확인 (건강iN)',
-        url: 'https://hi.nhis.or.kr',
-        description: '건강검진 결과서를 온라인으로 출력할 수 있어요.',
+        label: '건강검진 결과 확인',
+        url: 'https://www.nhis.or.kr',
+        description: '국민건강보험공단 홈페이지에서 건강검진 결과서를 온라인으로 출력할 수 있어요.',
       },
     ],
   },
